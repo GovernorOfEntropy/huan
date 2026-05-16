@@ -1,13 +1,16 @@
 ---
 title: "The Death of Drift: HUAN Architecture for Post-SaaS Governance"
 status: Draft
-version: 1.2.0
+version: 1.3.0
 huan-compliant: false
 type: Whitepaper
 license: Apache 2.0
 drafted: 2026-05-15
 updated: 2026-05-16
 versions:
+  - version: "1.3.0"
+    date: "2026-05-16"
+    changes: "Added section 5: The Bridge — Human-to-Role Retrieval. Generalized internal role names (Builder→implementation role, Tester→validation role, Steward→maintainer). Removed Jepson and HPE submission references. Section numbering corrected (1–10 continuous). Neutralized for perpetual standalone publication."
   - version: "1.2.0"
     date: "2026-05-16"
     changes: "Added section 7: The Directory Is the Perimeter — README as frontmatter, directory-manifest, untracked detection, version lockout, domain scoping. Pillar version references updated to current (spec 1.0.4, analyst 1.1.0, surgeon 1.1.0, lifecycle 1.0.3). Sections renumbered 7→10."
@@ -58,7 +61,7 @@ It is not. HUAN kills the translation tax at the artifact level. One card carrie
 
 The format is atomic. Each card covers exactly one subject. Cross-references form edges between cards. The edges create a navigable graph. The graph is the structure. The cards are the content.
 
-HUAN is a standard, not a platform. It defines I/O contracts at the seams. Implementations — Jepson, third-party tooling, custom renderers — compete on what happens inside the seam. Jepson is the reference runtime. It proves the standard is implementable. It is not required. Any tool that reads and writes HUAN-compliant cards is a valid HUAN implementation. We built the standard to be adopted, not to be owned.
+HUAN is a standard, not a platform. It defines I/O contracts at the seams. Implementations — a reference runtime, third-party tooling, custom renderers — compete on what happens inside the seam. The reference runtime proves the standard is implementable. It is not required. Any tool that reads and writes HUAN-compliant cards is a valid HUAN implementation. We built the standard to be adopted, not to be owned.
 
 ---
 
@@ -78,7 +81,7 @@ This is the method. Build. Observe the failure. Write the rule. Repeat. The 8 pi
 
 ---
 
-## 5. Coherence Is a Graph Property
+## 4. Coherence Is a Graph Property
 
 HUAN moves documentation quality from subjective review to measurable property. The question shifts from "does this look right?" to "does the graph have zero coherence violations?"
 
@@ -96,6 +99,18 @@ The analyst (huan-analyst v1.1.0) scans the card graph for six tension types.
 The analyst does not read. It computes. A card claiming `huan-compliant: true `while carrying a concept/context mismatch is detectably broken. The tension is not an opinion. It is a structural property of the graph. This is the shift: coherence stops being something you audit and becomes something you measure.
 
 The diagnostic layer (huan-diagnostic v1.0.0) monitors eight dimensions of card health. NDJSON event streams. Every dimension carries severity and a remediation hint. The visual layer (huan-visual v1.0.0) generates diagrams from the card graph. The 2-way edge rule enforces correctness: a diagram showing A connects to B is valid only if card A references B and card B references A. Diagram correctness is a graph property, not a visual one. No separate diagramming language required — the card graph is the diagram source.
+
+---
+
+## 5. The Bridge: Human-to-Role Retrieval
+
+Dual-audience cards are inert without a way to find them. The Human-to-Role retrieval pipeline (huan-h2r v1.0.0) is the bridge between a human question and the right cards.
+
+A human asks a question in natural language. The pipeline decomposes it into search primitives — entity, action, scope, depth. It traverses the card graph from the query's entry points. It scores retrieved cards by concept match, graph distance, and status. It assembles a retrieval package within a declared token budget and delivers it to the requesting AI role.
+
+The pipeline is role-aware. An implementation role gets code-generation cards only. A validation role gets test contracts. An analysis role gets the full graph. Role awareness is not security — it is context isolation. Each role sees what it needs and nothing more. Context pollution degrades output quality. The retrieval pipeline prevents it.
+
+The fallback chain preserves corpus integrity. If no card directly answers, the pipeline reports "no match" rather than fabricating from partial context. Silence is better than noise. Unmatched queries are logged for maintainer review. The corpus learns what it doesn't know.
 
 ---
 
@@ -136,7 +151,7 @@ This turns a file folder into an object-oriented database primitive. The folder 
 
 **Version lockout.** The manifest declares expected versions. If a file carries `version: 1.0.4` in its frontmatter but the manifest says `version: 1.0.2`, the pipeline locks. No artifacts in the directory advance. The lock is per-directory — a breach in one chapter does not cascade. The lock persists until the manifest is updated or the file version corrected.
 
-**Domain-scoped.** The analyst and surgeon operate at the chapter level by default. A chapter PM deploys their own instances. The analyst scans only the chapter's README and artifacts. The surgeon fixes only within the chapter's perimeter. Full-corpus access requires explicit Steward approval. Scans stay fast, findings stay relevant, ownership stays clear.
+**Domain-scoped.** The analyst and surgeon operate at the chapter level by default. A chapter PM deploys their own instances. The analyst scans only the chapter's README and artifacts. The surgeon fixes only within the chapter's perimeter. Full-corpus access requires explicit maintainer approval. Scans stay fast, findings stay relevant, ownership stays clear.
 
 The directory becomes a fort. The README is the gate. The manifest is the guard tower. The analyst is the watch. The pipeline obeys the perimeter. Drift arrives at the directory boundary and is turned back before it enters.
 
@@ -153,9 +168,9 @@ The surgeon reads analyst tension reports. Accesses the full corpus. Applies the
 | Fix stale file paths | Auto | None |
 | Bump version references | Auto | None |
 | Fix wiki-link formatting | Auto | None |
-| Split hybrid cards | Propose | Steward approval |
-| Merge duplicate cards | Propose | Steward approval |
-| Create cross-references | Propose | Steward approval |
+| Split hybrid cards | Propose | maintainer approval |
+| Merge duplicate cards | Propose | maintainer approval |
+| Create cross-references | Propose | maintainer approval |
 | Delete a card | NEVER | — |
 | Prune a card | NEVER | Human-gated |
 
@@ -199,8 +214,7 @@ We built this because the problem deserved better than process. The industry has
 
 - Source: huan-spec v1.0.4, huan-lifecycle v1.0.3, huan-analyst v1.1.0, huan-surgeon v1.1.0, huan-diagnostic v1.0.0, huan-visual v1.0.0, huan-h2r v1.0.0
 - Dependencies: huan-spec v1.0.4 (atomic card format, core standard inherited by all pillars)
-- References: docs/huan-standard/hpe-submission-package.md
-- Implementation: Jepson Factory (reference runtime, open source)
+- Implementation: Reference runtime available. Any conforming implementation is valid.
 
 ---
 
