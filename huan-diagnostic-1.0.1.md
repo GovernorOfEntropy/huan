@@ -1,6 +1,6 @@
 ---
 status: Draft
-version: 1.0.0
+version: 1.0.1
 huan-compliant: false
 type: Spec
 pillar: 5 of 8
@@ -15,6 +15,10 @@ versions:
 # huan-diagnostic v1.0.0 — Card Health Diagnostic Format
 
 ---
+
+## Irreducible Concept
+
+huan-diagnostic defines the log format for card health monitoring — the detection surface the analyst queries. Every HUAN corpus produces diagnostic events: staleness alerts, broken paths, tension detections, orphan flags. These events are NDJSON-structured, severity-tagged, and carry remediation hints. Eight dimensions of card health are monitored. The diagnostic layer is the immune system's early warning — it detects decay before it becomes corruption.
 
 ## 1. Overview
 

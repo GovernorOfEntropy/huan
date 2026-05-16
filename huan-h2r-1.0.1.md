@@ -1,6 +1,6 @@
 ---
 status: Draft
-version: 1.0.0
+version: 1.0.1
 huan-compliant: false
 type: Skill
 pillar: 4 of 8
@@ -15,6 +15,10 @@ versions:
 # huan-h2r v1.0.0 — Human-to-Role Retrieval Pipeline
 
 ---
+
+## Irreducible Concept
+
+huan-h2r is the bridge between human intent and corpus content. A human asks a question. The pipeline decomposes it, traverses the card graph, scores matches, and delivers a retrieval package to the requesting AI role. The pipeline is role-aware — each role sees only what it needs. A declared token budget is respected on every retrieval. The fallback chain preserves integrity: "no match" is a valid response where fabrication would be noise. Without retrieval, dual-audience cards are inert.
 
 ## 1. Role Identity
 

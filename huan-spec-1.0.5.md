@@ -1,6 +1,6 @@
 ---
 status: Draft
-version: 1.0.4
+version: 1.0.5
 huan-compliant: false
 type: Spec
 pillar: 1 of 8
@@ -24,6 +24,10 @@ versions:
 **HUAN:** Hybrid Universal Artifact Notation — Atomic Card Format
 
 ---
+
+## Irreducible Concept
+
+huan-spec defines the atomic card format — the foundation of the 8-pillar HUAN standard. Every HUAN card serves two audiences simultaneously: human and AI. The Irreducible Concept is human-readable prose. The Irreducible Context is AI-readable operational data. Both live in the same file. Neither can be removed without breaking the card. This dual-audience invariant is what makes coherence computable, drift detectable, and documentation a structural problem with a structural answer.
 
 ## 1. Overview
 

@@ -23,7 +23,7 @@ versions:
 audience: practitioner
 ---
 
-**Note:** This is a whitepaper, not a HUAN card. `huan-compliant: false`. For the standard, see huan-spec v1.0.4.
+**Note:** This is a whitepaper, not a HUAN card. `huan-compliant: false`. For the standard, see huan-spec v1.0.5.
 
 ## Irreducible Concept
 
@@ -85,7 +85,7 @@ This is the method. Build. Observe the failure. Write the rule. Repeat. The 8 pi
 
 HUAN moves documentation quality from subjective review to measurable property. The question shifts from "does this look right?" to "does the graph have zero coherence violations?"
 
-The analyst (huan-analyst v1.1.0) scans the card graph for six tension types.
+The analyst (huan-analyst v1.1.1) scans the card graph for six tension types.
 
 | Tension | Detection | Severity |
 |---------|----------|----------|
@@ -98,13 +98,13 @@ The analyst (huan-analyst v1.1.0) scans the card graph for six tension types.
 
 The analyst does not read. It computes. A card claiming `huan-compliant: true `while carrying a concept/context mismatch is detectably broken. The tension is not an opinion. It is a structural property of the graph. This is the shift: coherence stops being something you audit and becomes something you measure.
 
-The diagnostic layer (huan-diagnostic v1.0.0) monitors eight dimensions of card health. NDJSON event streams. Every dimension carries severity and a remediation hint. The visual layer (huan-visual v1.0.0) generates diagrams from the card graph. The 2-way edge rule enforces correctness: a diagram showing A connects to B is valid only if card A references B and card B references A. Diagram correctness is a graph property, not a visual one. No separate diagramming language required — the card graph is the diagram source.
+The diagnostic layer (huan-diagnostic v1.0.1) monitors eight dimensions of card health. NDJSON event streams. Every dimension carries severity and a remediation hint. The visual layer (huan-visual v1.0.1) generates diagrams from the card graph. The 2-way edge rule enforces correctness: a diagram showing A connects to B is valid only if card A references B and card B references A. Diagram correctness is a graph property, not a visual one. No separate diagramming language required — the card graph is the diagram source.
 
 ---
 
 ## 5. The Bridge: Human-to-Role Retrieval
 
-Dual-audience cards are inert without a way to find them. The Human-to-Role retrieval pipeline (huan-h2r v1.0.0) is the bridge between a human question and the right cards.
+Dual-audience cards are inert without a way to find them. The Human-to-Role retrieval pipeline (huan-h2r v1.0.1) is the bridge between a human question and the right cards.
 
 A human asks a question in natural language. The pipeline decomposes it into search primitives — entity, action, scope, depth. It traverses the card graph from the query's entry points. It scores retrieved cards by concept match, graph distance, and status. It assembles a retrieval package within a declared token budget and delivers it to the requesting AI role.
 
@@ -121,13 +121,13 @@ Drift attacks at every layer. HUAN defends at every layer. No single mechanism c
 | Layer | Mechanism | What It Protects |
 |-------|-----------|-----------------|
 | 1 | Git | Code loss. Version history. Rollback. |
-| 2 | huan-lifecycle v1.0.3 | Stale cards. Formal state machine from seed to pruned. Every transition gated. |
-| 3 | huan-analyst v1.1.0 | Coherence drift. Six-tension scan. Structured reports. |
-| 4 | huan-surgeon v1.1.0 | Accumulated unfixed tensions. Surgical remediation at three autonomy levels. |
+| 2 | huan-lifecycle v1.0.4 | Stale cards. Formal state machine from seed to pruned. Every transition gated. |
+| 3 | huan-analyst v1.1.1 | Coherence drift. Six-tension scan. Structured reports. |
+| 4 | huan-surgeon v1.1.1 | Accumulated unfixed tensions. Surgical remediation at three autonomy levels. |
 
 Each layer catches what the layer below cannot. Git catches code loss but accepts stale documentation. The lifecycle catches staleness but does not detect semantic mismatch. The analyst detects mismatch but does not act on it. The surgeon closes the loop.
 
-The lifecycle state machine (huan-lifecycle v1.0.3) is the structural defense. A card cannot advance from growing to HUAN status unless all cross-references reciprocate. A card at HUAN status cannot be modified without triggering re-evaluation. The gates are not advisory. They are encoded in the state transitions.
+The lifecycle state machine (huan-lifecycle v1.0.4) is the structural defense. A card cannot advance from growing to HUAN status unless all cross-references reciprocate. A card at HUAN status cannot be modified without triggering re-evaluation. The gates are not advisory. They are encoded in the state transitions.
 
 Deprecation propagates automatically. Prune a card. The signal moves. Every dependent is flagged within three hops. The organization knows immediately what a change affects — not by reading documentation, but by watching the graph respond. The change becomes visible at the speed of the graph, not the speed of the next meeting.
 
@@ -159,7 +159,7 @@ The directory becomes a fort. The README is the gate. The manifest is the guard 
 
 ## 8. The Surgeon
 
-huan-surgeon v1.1.0 closes the loop the analyst opens. 
+huan-surgeon v1.1.1 closes the loop the analyst opens. 
 
 The surgeon reads analyst tension reports. Accesses the full corpus. Applies the minimum intervention. It does not design. It does not decide strategic direction. It executes the smallest change that closes a specific tension.
 
@@ -185,14 +185,14 @@ The surgeon's autonomy model is calibrated. Deterministic fixes — stale paths,
 We built an 8-pillar architecture. Every pillar is drafted. Every pillar carries a version. The artifacts exist, the contracts are defined, the reference runtime is implemented.
 
 The pillars:
-- **huan-spec v1.0.4** — atomic card format. The foundation.
-- **huan-skill v1.0.2** — the HUAN product definition. This standard, managed.
-- **huan-lifecycle v1.0.3** — state machine from seed to pruned. Deprecation propagation.
-- **huan-h2r v1.0.0** — human-to-role retrieval pipeline.
-- **huan-diagnostic v1.0.0** — card health monitoring. NDJSON events.
-- **huan-visual v1.0.0** — card graph to diagram rendering. 2-way edge rule enforced.
-- **huan-analyst v1.1.0** — tension detection as computable graph property.
-- **huan-surgeon v1.1.0** — agentic remediation. Surgical, calibrated, auditable.
+- **huan-spec v1.0.5** — atomic card format. The foundation.
+- **huan-skill v1.0.3** — the HUAN product definition. This standard, managed.
+- **huan-lifecycle v1.0.4** — state machine from seed to pruned. Deprecation propagation.
+- **huan-h2r v1.0.1** — human-to-role retrieval pipeline.
+- **huan-diagnostic v1.0.1** — card health monitoring. NDJSON events.
+- **huan-visual v1.0.1** — card graph to diagram rendering. 2-way edge rule enforced.
+- **huan-analyst v1.1.1** — tension detection as computable graph property.
+- **huan-surgeon v1.1.1** — agentic remediation. Surgical, calibrated, auditable.
 
 The architecture is complete. The standard is open. The reference implementation exists. What remains is adoption, feedback, and iteration — the work of a living standard.
 
@@ -212,8 +212,8 @@ We built this because the problem deserved better than process. The industry has
 
 ## Irreducible Context
 
-- Source: huan-spec v1.0.4, huan-lifecycle v1.0.3, huan-analyst v1.1.0, huan-surgeon v1.1.0, huan-diagnostic v1.0.0, huan-visual v1.0.0, huan-h2r v1.0.0
-- Dependencies: huan-spec v1.0.4 (atomic card format, core standard inherited by all pillars)
+- Source: huan-spec v1.0.5, huan-lifecycle v1.0.4, huan-analyst v1.1.1, huan-surgeon v1.1.1, huan-diagnostic v1.0.1, huan-visual v1.0.1, huan-h2r v1.0.1
+- Dependencies: huan-spec v1.0.5 (atomic card format, core standard inherited by all pillars)
 - Implementation: Reference runtime available. Any conforming implementation is valid.
 
 ---

@@ -1,6 +1,6 @@
 ---
 status: Draft
-version: 1.0.0
+version: 1.0.1
 huan-compliant: false
 type: Skill
 pillar: 6 of 8
@@ -15,6 +15,10 @@ versions:
 # huan-visual v1.0.0 — Visual Artifact Production Skill File
 
 ---
+
+## Irreducible Concept
+
+huan-visual renders the card graph as dual-audience diagrams. No separate diagram language is required — the card graph IS the diagram. Cross-references define edges. ZK numbers define nodes. The visual artifact is a projection of the graph, nothing more. The mdwiki 2-way edge rule enforces correctness: a diagram showing A connects to B is valid only if both cards reference each other. Diagram correctness is a graph property, not a visual one.
 
 ## 1. Role Identity
 
@@ -116,8 +120,8 @@ A HUAN visual artifact is a single file containing:
 ```yaml
 # Visual Artifact Header
 artifact: card-graph
-version: 1.0.0
-generated: 2026-05-15T14:30:00Z
+version: 1.0.1
+generated: 2026-05-16T14:30:00Z
 card_count: 147
 edge_count: 312
 bidirectional_edge_count: 298

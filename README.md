@@ -1,14 +1,74 @@
+---
+status: huan
+version: 1.1.0
+huan-compliant: false
+huan-directory-compliant: true
+type: directory-frontmatter
+license: Apache 2.0
+drafted: 2026-05-15
+updated: 2026-05-16
+directory-manifest:
+  - path: "README.md"
+    type: "directory-frontmatter"
+    version: "1.1.0"
+  - path: "whitepaper-death-of-drift.md"
+    type: "whitepaper"
+    version: "1.3.0"
+  - path: "huan-spec-1.0.5.md"
+    type: "specification"
+    version: "1.0.5"
+  - path: "huan-skill-v1.0.3.md"
+    type: "skill"
+    version: "1.0.3"
+  - path: "huan-lifecycle-1.0.4.md"
+    type: "specification"
+    version: "1.0.4"
+  - path: "huan-h2r-1.0.1.md"
+    type: "skill"
+    version: "1.0.1"
+  - path: "huan-diagnostic-1.0.1.md"
+    type: "specification"
+    version: "1.0.1"
+  - path: "huan-visual-1.0.1.md"
+    type: "skill"
+    version: "1.0.1"
+  - path: "huan-analyst-1.1.1.md"
+    type: "skill"
+    version: "1.1.1"
+  - path: "huan-surgeon-1.1.1.md"
+    type: "skill"
+    version: "1.1.1"
+versions:
+  - version: "1.1.0"
+    date: "2026-05-16"
+    changes: "Added directory-manifest and HUAN-compliant frontmatter. All 8 pillars + whitepaper declared with current versions."
+  - version: "1.0.0"
+    date: "2026-05-15"
+    changes: "Initial README. 8-pillar overview, quick start, adoption notes."
+---
+
 # HUAN Standard
 
-**Status:** Draft — all 8 pillars drafted (2026-05-15)
+**HUAN:** Hybrid Universal Artifact Notation
 **License:** Apache 2.0
 **Repository:** github.com/governorofentropy/huan-standard
 
 ---
 
-HUAN is an open standard for dual-audience (human + AI) documentation. Every artifact serves both audiences simultaneously. One card, two readers, zero translation.
+## Irreducible Concept
 
-HUAN: Hybrid Universal Artifact Notation.
+HUAN is an open standard for dual-audience documentation. Every artifact serves humans and AI simultaneously — one file, two readers, zero translation. The standard defines I/O contracts at the seams. Implementations compete on what happens inside.
+
+This directory is the canonical registry of the HUAN standard. It contains the 8-pillar architecture — the atomic card format, the lifecycle state machine, the retrieval pipeline, the diagnostic layer, the visual renderer, the tension analyst, and the remediation surgeon. Every artifact is versioned. Every version is declared.
+
+**This README is the directory perimeter.** It carries a `directory-manifest` — the indexed inventory of every artifact. The manifest is the source of truth. The analyst compares it against disk on every scan. A file listed but missing is a stale reference. A file on disk but not in the manifest is an unmapped entity. A version mismatch locks the pipeline. This directory knows its own contents, enforces its own version boundaries, and computes its own structural health through this single file. This turns a file folder into an object-oriented database primitive.
+
+## Irreducible Context
+
+- **Source paths:** `docs/huan-standard/huan-spec-1.0.5.md` (v1.0.4), `docs/huan-standard/huan-lifecycle-1.0.4.md` (v1.0.3), `docs/huan-standard/huan-h2r-1.0.1.md` (v1.0.0), `docs/huan-standard/huan-diagnostic-1.0.1.md` (v1.0.0), `docs/huan-standard/huan-visual-1.0.1.md` (v1.0.0), `docs/huan-standard/huan-analyst-1.1.1.md` (v1.1.0), `docs/huan-standard/huan-surgeon-1.1.1.md` (v1.1.0), `docs/huan-standard/huan-skill-v1.0.3.md` (v1.0.2), `docs/huan-standard/whitepaper-death-of-drift.md` (v1.3.0)
+- **Dependencies:** huan-spec v1.0.5 (atomic card format, core standard inherited by all pillars)
+- **Directory perimeter:** manifest-to-disk match enforced by huan-analyst v1.1.1. Version lockout enforced by huan-lifecycle v1.0.4.
+- **Implementation:** Reference runtime available. Any conforming implementation is valid.
 
 ## The 8 Pillars
 
@@ -25,14 +85,14 @@ HUAN: Hybrid Universal Artifact Notation.
 
 ## Quick Start
 
-1. Read huan-spec v1.0.2 — the atomic card format
+1. Read huan-spec v1.0.5 — the atomic card format
 2. Write a card with Irreducible Concept + Irreducible Context
 3. Apply a status: seed, growing, or huan
 4. Cross-reference related cards with [[wiki-links]]
 
 ## Adoption
 
-HUAN defines I/O contracts. Implementations compete on quality. Jepson is the reference runtime — not required. Any tool that reads and writes HUAN-compliant cards is a valid HUAN implementation.
+HUAN defines I/O contracts. Implementations compete on quality. The reference runtime is not required. Any tool that reads and writes HUAN-compliant cards is a valid HUAN implementation.
 
 ## License
 

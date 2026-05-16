@@ -1,6 +1,6 @@
 ---
 status: Draft
-version: 1.0.3
+version: 1.0.4
 huan-compliant: false
 type: Spec
 pillar: 3 of 8
@@ -17,6 +17,10 @@ versions:
 ---
 
 # huan-lifecycle v1.0.2 — corrected per Advisor 02:20 FINAL
+
+## Irreducible Concept
+
+huan-lifecycle governs the state of every HUAN artifact. Cards progress through a branching state machine: seed → growing → huan → pruned. Every transition is gated. The mdwiki 2-way edge rule blocks promotion unless cross-references reciprocate. Deprecation propagates automatically — prune a card and every dependent is flagged within three hops. The directory perimeter gate extends this to the filesystem: a directory is not compliant unless its README manifest matches disk. The lifecycle is the structural defense against drift.
 
 ## 1. Scope
 This lifecycle governs HUAN cards only. A HUAN card is always dual-audience. Non-HUAN artifacts (evergreen, raw logs, internal) exist alongside but are not governed by this lifecycle.

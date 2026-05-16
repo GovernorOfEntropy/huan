@@ -1,6 +1,6 @@
 ---
 status: Draft
-version: 1.1.0
+version: 1.1.1
 huan-compliant: false
 type: Skill
 pillar: 7 of 8
@@ -20,6 +20,10 @@ versions:
 **Source:** Derived from cockpit-analyst, generalized per huan-spec
 
 ---
+
+## Irreducible Concept
+
+huan-analyst detects coherence violations as computable graph properties. It does not read — it computes. Six tension types are scanned: concept/context mismatch, stale references, one-way edges, orphan cards, circular dependencies, version skew. The analyst also enforces the directory perimeter — comparing README manifests against disk, flagging unmapped entities, locking the pipeline on version skew. Domain-scoped by default. Chapter PMs deploy their own instances. The analyst detects; it does not resolve.
 
 ## 1. Role Identity
 

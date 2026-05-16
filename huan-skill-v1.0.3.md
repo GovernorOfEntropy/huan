@@ -1,6 +1,6 @@
 ---
 status: Draft
-version: 1.0.2
+version: 1.0.3
 huan-compliant: false
 type: Skill
 pillar: 2 of 8
@@ -19,6 +19,10 @@ versions:
 # huan-skill v1.0.2 — Tech Writer PM Skill File
 
 ---
+
+## Irreducible Concept
+
+huan-skill owns the production of HUAN-compliant documentation. Every artifact — spec, skill file, whitepaper, README — serves both human and AI audiences simultaneously. The Tech Writer PM translates pillar designs into dual-audience artifacts, versions every output, scrubs internal references before public release, and maintains the standard as a living document. Documentation without both audiences is not HUAN.
 
 ## 1. Role Identity
 

@@ -1,6 +1,6 @@
 ---
 status: Draft
-version: 1.1.0
+version: 1.1.1
 huan-compliant: false
 type: Skill
 pillar: 8 of 8
@@ -19,6 +19,10 @@ versions:
 # huan-surgeon v1.0.0 — Agentic Remediation Skill File
 
 ---
+
+## Irreducible Concept
+
+huan-surgeon closes the loop the analyst opens. It reads tension reports, accesses the full corpus within its domain, and applies the minimum intervention. Deterministic fixes — stale paths, version bumps, formatting — execute automatically. Strategic changes — splitting cards, merging duplicates — are proposed for maintainer approval. Irreversible actions — deletion, pruning — are never automated. Domain-scoped by default. The surgeon fixes; it does not design.
 
 ## 1. Role Identity
 
