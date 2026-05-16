@@ -1,128 +1,149 @@
-# The Death of Drift: A HUAN Architecture for Post-SaaS Governance
-
-**Status:** Draft
-**huan-compliant:** false
-**Type:** Whitepaper
-**License:** Apache 2.0
-**Drafted:** 2026-05-15
-
 ---
+title: "The Death of Drift: HUAN Architecture for Post-SaaS Governance"
+status: Draft
+version: 1.0.0
+huan-compliant: false
+type: Whitepaper
+license: Apache 2.0
+drafted: 2026-05-15
+updated: 2026-05-15
+versions:
+  - version: "1.0.0"
+    date: "2026-05-15"
+    changes: "Initial draft. 8-pillar architecture, dual-audience thesis, computable coherence, surgeon remediation, deprecation propagation."
+audience: practitioner
+---
+
+**Note:** This is a whitepaper, not a HUAN card. `huan-compliant: false`. For the standard, see huan-spec v1.0.2.
 
 ## Irreducible Concept
 
-Every organization suffers from drift — the widening gap between strategic intent, technical reality, and documentation. Traditional fixes add process, which does not scale. HUAN is an open standard for dual-audience documentation that kills drift at the source: every artifact serves humans and AI simultaneously, coherence is a computable graph property, and a surgeon-agent heals the corpus before anyone notices the wound. This isn't a documentation tool. It is the immune system for the corporate brain.
+The industry has accepted a quiet failure as permanent. Every organization drifts — the gap between what leadership believes, what engineering built, and what documentation says widens daily. The accepted response is process. More reviews. More gates. More meetings. The architecture of the response matches the architecture of the problem: both are human-scale. Drift moves faster than humans can.
+
+We built HUAN to break that cycle. It is an open standard for dual-audience documentation. Every artifact serves humans and AI simultaneously. Coherence is a computable graph property — not a feeling, not a review finding. A surgeon-agent heals the corpus before anyone notices the wound. The founder thinks. The factory builds. Drift arrives. The system responds.
+
+This is not a documentation tool. It is the immune system for the corporate brain. We are putting it in the world because the problem deserves a response at its own scale.
 
 ---
 
-## I. The Crisis of Institutional Entropy
+## 1. Drift Arrives Quietly
 
-### The Drift Trap
+No organization starts with drift. Every organization acquires it.
 
-Drift is not a bug. It is the default. Every organization experiences the widening gap between what leadership believes, what engineering built, and what the documentation says. The API spec says timeout_ms: 30000. The README says "uses 30-second timeout." The code uses config.get('request_timeout'). Three sources. One concept. Zero agreement.
+The API spec says `timeout_ms: 30000`. The README says "uses 30-second timeout." The code calls `config.get('request_timeout')`. Three sources. One concept. Zero agreement. Nobody broke anything. The drift arrived between commits — between the spec review and the sprint planning, between the deploy and the postmortem.
 
-The traditional fix has been process — more reviews, more gates, more meetings. Process does not scale. Every gate adds latency. Every review consumes attention. The organization spends more time verifying coherence than producing value.
+The industry treats this as cost of doing business. Documentation ages. Wikis rot. Engineers leave and take the why with them. The organization forgets decisions. Future decisions are made without the reasoning that produced the original ones. The cost compounds. It is not measured on a balance sheet because the industry has no instrument for it.
 
-### The Translation Tax
+Process is the standard answer. More gates. More checklists. More meetings to verify that what's written matches what's built. This is a category error. Drift is not a process problem with a process solution. Drift is a structural problem. Process adds surface area for drift to hide behind. Every gate becomes a ceremony. Every review becomes theater. The organization spends more time verifying coherence than producing value — and still drifts.
 
-Systems that separate human-readable prose from machine-readable data impose a translation tax. Every time an engineer reads an API spec and translates it into code, the tax is paid. Every time a product manager updates a wiki page that's already stale, the tax is paid. The tax compounds. Large organizations spend 20-30% of engineering time on coherence maintenance — verifying that what's written matches what's built.
-
-HUAN kills the tax at the source. One card. Two audiences. No duplication. The Irreducible Concept is human-readable prose. The Irreducible Context is AI-readable operational data. Both live in the same artifact. Neither can be removed without breaking the card.
-
-### The Cost of Memory Loss
-
-Institutional memory is the most expensive thing an enterprise loses every day. Engineers leave. Wikis rot. READMEs go unread. The organization forgets why decisions were made. Without the reasoning, future decisions are made in the dark.
-
-A HUAN corpus preserves the why alongside the what. Every card carries its provenance — source paths, dependency chains, version history. The corpus is the company's git log of thinking.
+We built a structural answer. Drift is the default state of any organization without an immune system. HUAN is the immune system.
 
 ---
 
-## II. The HUAN Standard: Atomic Intelligence
+## 2. Humans and Machines Speak Different Languages
 
-### The Dual-Audience Invariant
+The industry separates human-readable prose from machine-readable data. Specs for people. APIs for machines. Two artifacts. One truth. Every handoff between them pays a tax.
 
-Every HUAN artifact is a single file carrying two structurally separated sections:
+An engineer reads an API spec. Translates it into code. The code ships. The spec ages. The README diverges. Three artifacts. One truth. The tax compounds with every translation.
 
-- **Irreducible Concept** — Human-readable. Prose, narrative, philosophy. The "why." A founder, engineer, or product manager reads this to understand what the card means.
+Large organizations running documentation estates at scale burn 20-30% of engineering time on coherence maintenance — chasing stale references, reconciling contradictory sources, verifying what's written against what's built. This is not documentation work. This is the cost of accepting that humans and machines cannot share a single artifact. The industry pays it because the industry believes it is inevitable.
 
-- **Irreducible Context** — AI-readable. Source paths, dependencies, versions, operational metadata. An AI role (Builder, Tester, Analyst) reads this to understand what the card requires to act.
+It is not. HUAN kills the translation tax at the artifact level. One card carries two structurally separated sections. The Irreducible Concept is human-readable prose — the reason the card exists. The Irreducible Context is AI-readable operational data — the dependencies, the versions, the paths. Both live in the same file. Neither can be removed without breaking the card. One source. One truth. Zero translation.
 
-Separation is structural, not physical. One artifact. Two audiences. Zero translation.
+The format is atomic. Each card covers exactly one subject. Cross-references form edges between cards. The edges create a navigable graph. The graph is the structure. The cards are the content.
 
-Named for Huan, Hound of Valinor, who understood every tongue and spoke only when it mattered. A card that is not dual-audience is not a HUAN card.
-
-### One Subject, One Card
-
-Atomicity kills context sprawl at the source. Each card covers exactly one subject. Cross-references (wiki-links) create edges between cards, forming a navigable graph. The graph is the structure. The cards are the content.
-
-### Protocol Over Platform
-
-HUAN is an open I/O contract — a standard, not a product. The standard defines seams. Implementations compete on rendering, interaction, and layout quality.
-
-Jepson is the reference runtime — the first implementation. It proves the standard is implementable. It is not required. Any tool that reads and writes HUAN-compliant cards is a valid HUAN implementation.
+HUAN is a standard, not a platform. It defines I/O contracts at the seams. Implementations — Jepson, third-party tooling, custom renderers — compete on what happens inside the seam. Jepson is the reference runtime. It proves the standard is implementable. It is not required. Any tool that reads and writes HUAN-compliant cards is a valid HUAN implementation. We built the standard to be adopted, not to be owned.
 
 ---
 
-## III. The Immune System: Computable Coherence
+## 3. Coherence Is a Graph Property
 
-### The Safety Net Hierarchy
+HUAN moves documentation quality from subjective review to measurable property. The question shifts from "does this look right?" to "does the graph have zero coherence violations?"
 
-Four layers of defense against drift:
+The analyst (huan-analyst v1.0.0) scans the card graph for six tension types.
 
-1. **Git** — protects against code loss. Version history. Rollback.
-2. **Lifecycle** — protects against stale cards. Formal state machine: seed → growing → HUAN → pruned. Every transition is gated. The mdwiki 2-way edge rule blocks promotion to HUAN unless all cross-references reciprocate.
-3. **Analyst** — protects against coherence drift. Scans the card graph for six tension types: concept/context mismatch, stale references, one-way edges, orphan cards, circular dependencies, version skew. Produces structured Tension Reports.
-4. **Surgeon** — protects against accumulation of unfixed tensions. Reads analyst reports. Auto-fixes deterministic problems. Proposes strategic changes for human review. Escalates what it cannot fix.
+| Tension | Detection | Severity |
+|---------|----------|----------|
+| Concept/Context mismatch | Semantic conflict between prose and operational data | Critical |
+| Stale references | Referenced paths do not resolve on disk | Error at HUAN status |
+| One-way edges | Card A references B but B does not reference A | Blocks growing→HUAN transition |
+| Orphan cards | Zero inbound references from any other card | Warning |
+| Circular dependencies | Reference chain forms a cycle | Error |
+| Version skew | Referenced version is outdated | Warning |
 
-### The Pulse: Diagnostic
+The analyst does not read. It computes. A card claiming `huan-compliant: true `while carrying a concept/context mismatch is detectably broken. The tension is not an opinion. It is a structural property of the graph. This is the shift: coherence stops being something you audit and becomes something you measure.
 
-Real-time monitoring via NDJSON event streams. Eight dimensions of card health: staleness, path rot, tension, orphan status, circular dependency, version skew, broken cross-references, coherence drift. Every dimension carries severity (info/warning/error/critical) and remediation hints.
-
-### The Intelligence: Analyst
-
-The analyst moves documentation quality from "I read it and it seems fine" to "the graph has zero coherence violations." Tension becomes a computable property. A card claiming huan-compliant: true but carrying a concept/context mismatch is detectably broken. The analyst doesn't read. It computes.
-
-### The 2-Way Edge Rule
-
-Visual diagrams are valid only if the underlying card graph relationships are bidirectional. A diagram showing A connects to B is correct only if card A references card B and card B references card A. Diagram correctness is a graph property, not a visual one. No separate diagram language required — the card graph IS the diagram source.
+The diagnostic layer (huan-diagnostic v1.0.0) monitors eight dimensions of card health. NDJSON event streams. Every dimension carries severity and a remediation hint. The visual layer (huan-visual v1.0.0) generates diagrams from the card graph. The 2-way edge rule enforces correctness: a diagram showing A connects to B is valid only if card A references B and card B references A. Diagram correctness is a graph property, not a visual one. No separate diagramming language required — the card graph is the diagram source.
 
 ---
 
-## IV. Surgical Remediation: Closing the Loop
+## 4. Four Layers. No Single Point of Failure.
 
-### The Surgeon Role
+Drift attacks at every layer. HUAN defends at every layer. No single mechanism carries the full burden.
 
-huan-surgeon closes the loop the analyst opens. Named for Huan's decisive action — deep knowledge and surgical precision in one being. The surgeon reads analyst tension reports, accesses the full corpus, and applies the minimum intervention.
+| Layer | Mechanism | What It Protects |
+|-------|-----------|-----------------|
+| 1 | Git | Code loss. Version history. Rollback. |
+| 2 | huan-lifecycle v1.0.0 | Stale cards. Formal state machine from seed to pruned. Every transition gated. |
+| 3 | huan-analyst v1.0.0 | Coherence drift. Six-tension scan. Structured reports. |
+| 4 | huan-surgeon v1.0.0 | Accumulated unfixed tensions. Surgical remediation at three autonomy levels. |
 
-### Autonomy Levels
+Each layer catches what the layer below cannot. Git catches code loss but accepts stale documentation. The lifecycle catches staleness but does not detect semantic mismatch. The analyst detects mismatch but does not act on it. The surgeon closes the loop.
 
-| Action | Autonomy |
-|--------|----------|
-| Fix stale file paths | Auto |
-| Bump version references | Auto |
-| Fix wiki-link formatting | Auto |
-| Split hybrid cards | Propose (human review) |
-| Merge duplicate cards | Propose (human review) |
-| Create cross-references | Propose (human review) |
-| Delete a card | NEVER |
-| Prune a card | NEVER (human-gated) |
+The lifecycle state machine (huan-lifecycle v1.0.0) is the structural defense. A card cannot advance from growing to HUAN status unless all cross-references reciprocate. A card at HUAN status cannot be modified without triggering re-evaluation. The gates are not advisory. They are encoded in the state transitions.
 
-Every auto-fix action is logged with before/after snapshot and rollback path. Git is the safety net — high-velocity autonomous maintenance with permanent undo.
+Deprecation propagates automatically. Prune a card. The signal moves. Every dependent is flagged within three hops. The organization knows immediately what a change affects — not by reading documentation, but by watching the graph respond. The change becomes visible at the speed of the graph, not the speed of the next meeting.
 
 ---
 
-## V. Governance at the Speed of AI
+## 5. The Surgeon
 
-### Beyond Code Review
+huan-surgeon v1.0.0 closes the loop the analyst opens. Named for Huan — deep knowledge and decisive action in one being.
 
-Traditional governance reviews code. HUAN governance reviews structural coherence — the entire graph of what the organization believes to be true. The question shifts from "does this code work?" to "does this organization's stated intent match its operational reality?"
+The surgeon reads analyst tension reports. Accesses the full corpus. Applies the minimum intervention. It does not design. It does not decide strategic direction. It executes the smallest change that closes a specific tension.
 
-### Deprecation Propagation
+| Action | Autonomy | Gate |
+|--------|---------|------|
+| Fix stale file paths | Auto | None |
+| Bump version references | Auto | None |
+| Fix wiki-link formatting | Auto | None |
+| Split hybrid cards | Propose | Steward approval |
+| Merge duplicate cards | Propose | Steward approval |
+| Create cross-references | Propose | Steward approval |
+| Delete a card | NEVER | — |
+| Prune a card | NEVER | Human-gated |
 
-When a card is pruned, the signal propagates automatically. All cards referencing the pruned card are flagged. Dependents are notified. The Steward reviews. Propagation cascades up to 3 hops. The organization knows immediately what a change affects — not by reading documentation, but by watching the graph.
+Every auto-fix logs: timestamp, card affected, change made, before/after snapshot, rollback path, rationale. Git is the safety net. High-velocity autonomous maintenance. Permanent undo.
 
-### The Vision
+The surgeon's autonomy model is calibrated. Deterministic fixes — stale paths, version bumps, formatting — execute without review. The machine is faster and more reliable at these than a human. Strategic changes — splitting hybrid cards, merging duplicates, creating new cross-references — require human approval. The machine proposes. The human decides. Changes with irreversible consequence — deletion, pruning — are never automated. The line between machine speed and human judgment is explicit and enforced.
 
-A low-entropy organization where the distance between "what we think" and "what is true" remains zero. Where the Analyst audits the corpus for contradictions before they become incidents. Where the Surgeon fixes what's broken before anyone notices. Where the founder thinks. Where the factory builds.
+---
+
+## 6. What We Built and What It Means
+
+We built an 8-pillar architecture. Every pillar is drafted. Every pillar carries a version. The artifacts exist, the contracts are defined, the reference runtime is implemented.
+
+The pillars:
+- **huan-spec v1.0.2** — atomic card format. The foundation.
+- **huan-skill v1.0.1** — the HUAN product definition. This standard, managed.
+- **huan-lifecycle v1.0.0** — state machine from seed to pruned. Deprecation propagation.
+- **huan-h2r v1.0.0** — human-to-role retrieval pipeline.
+- **huan-diagnostic v1.0.0** — card health monitoring. NDJSON events.
+- **huan-visual v1.0.0** — card graph to diagram rendering. 2-way edge rule enforced.
+- **huan-analyst v1.0.0** — tension detection as computable graph property.
+- **huan-surgeon v1.0.0** — agentic remediation. Surgical, calibrated, auditable.
+
+The architecture is complete. The standard is open. The reference implementation exists. What remains is adoption, feedback, and iteration — the work of a living standard.
+
+---
+
+## 7. The Immune System
+
+The distance between what an organization thinks it knows and what is actually true is its entropy budget. High-entropy organizations spend that budget on meetings, reviews, and incident remediation — paying the tax the industry has accepted as permanent. Low-entropy organizations spend it on building.
+
+HUAN closes the gap by making coherence a machine problem. The analyst audits the corpus for contradictions before they become incidents. The surgeon fixes what's broken before anyone notices. The lifecycle gates prevent decay from entering the system. The founder thinks. The factory builds. Drift arrives. The system responds. Silence is the baseline.
+
+We built this because the problem deserved better than process. The industry has lived with drift long enough to forget it is optional. It is optional. We proved it. The standard is open. The reference runtime ships. The architecture is eight pillars, drafted, versioned, and free.
 
 **This is not a documentation tool. It is the immune system for the corporate brain.**
 
@@ -130,9 +151,10 @@ A low-entropy organization where the distance between "what we think" and "what 
 
 ## Irreducible Context
 
-- Source: huan-spec v1.0.2, huan-lifecycle v1.0.0, huan-analyst v1.0.0, huan-surgeon v1.0.0, huan-diagnostic v1.0.0, huan-visual v1.0.0
-- Dependencies: ZK-099 (Coherence as Quality of Life), ZK-111 (Context Sprawl Is the New Monolith)
+- Source: huan-spec v1.0.2, huan-lifecycle v1.0.0, huan-analyst v1.0.0, huan-surgeon v1.0.0, huan-diagnostic v1.0.0, huan-visual v1.0.0, huan-h2r v1.0.0
+- Dependencies: huan-spec v1.0.2 (atomic card format, core standard inherited by all pillars)
 - References: docs/huan-standard/hpe-submission-package.md
+- Implementation: Jepson Factory (reference runtime, open source)
 
 ---
 
