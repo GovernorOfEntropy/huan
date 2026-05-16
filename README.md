@@ -8,7 +8,7 @@
 
 HUAN is an open standard for dual-audience (human + AI) documentation. Every artifact serves both audiences simultaneously. One card, two readers, zero translation.
 
-Named for Huan, Hound of Valinor, who understood every tongue and spoke only when it mattered.
+HUAN: Hybrid Universal Artifact Notation.
 
 ## The 8 Pillars
 

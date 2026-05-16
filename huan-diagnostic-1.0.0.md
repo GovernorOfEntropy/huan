@@ -1,11 +1,18 @@
-# huan-diagnostic v1.0.0 — Card Health Diagnostic Format
+---
+status: Draft
+version: 1.0.0
+huan-compliant: false
+type: Spec
+pillar: 5 of 8
+license: Apache 2.0
+drafted: 2026-05-15
+versions:
+  - version: "1.0.0"
+    date: "2026-05-15"
+    changes: "Initial draft. NDJSON event format, 8 diagnostic dimensions, severity taxonomy, scan cadence, consumer contracts."
+---
 
-**Status:** Draft
-**Type:** Format (spec)
-**Pillar:** 5 of 8
-**License:** Apache 2.0
-**Drafted:** 2026-05-15
-**Inherits:** huan-spec v1.0.2, huan-lifecycle v1.0.0
+# huan-diagnostic v1.0.0 — Card Health Diagnostic Format
 
 ---
 
@@ -174,9 +181,9 @@ A diagnostic implementation is HUAN-compliant if:
 
 ## 9. Irreducible Context
 
-- **Source paths:** `docs/corpus/ZK-072-journaling-protocol.md`, `docs/corpus/ZK-098-flight-recorder-mission-archive.md`, `docs/corpus/ZK-046-org-model-taste-over-headcount.md`, `docs/huan-standard/huan-spec-1.0.2.md`, `docs/huan-standard/huan-lifecycle-1.0.0.md`
-- **Dependencies:** huan-spec v1.0.2 (card format, required fields as health check targets), huan-lifecycle v1.0.0 (status tiers, transition gates as diagnostic inputs)
-- **Versions referenced:** ZK-072 (huan, 2026-05-06), ZK-098 (huan, 2026-05-08), ZK-046 (huan, 2026-04-05), huan-spec v1.0.2 (2026-05-15), huan-lifecycle v1.0.0 (2026-05-15)
+- **Source paths:** `docs/corpus/ZK-072-journaling-protocol.md`, `docs/corpus/ZK-098-flight-recorder-mission-archive.md`, `docs/corpus/ZK-046-org-model-taste-over-headcount.md`, `docs/huan-standard/huan-spec-1.0.2.md`, `docs/huan-standard/huan-lifecycle-1.0.2.md`
+- **Dependencies:** huan-spec v1.0.2 (card format, required fields as health check targets), huan-lifecycle v1.0.2 (status tiers, transition gates as diagnostic inputs)
+- **Versions referenced:** ZK-072 (huan, 2026-05-06), ZK-098 (huan, 2026-05-08), ZK-046 (huan, 2026-04-05), huan-spec v1.0.2 (2026-05-15), huan-lifecycle v1.0.2 (2026-05-15)
 - **Implementation:** Jepson Factory (reference runtime). NDJSON event emission, scan scheduling, consumer subscription.
 
 ---

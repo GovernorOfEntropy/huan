@@ -1,18 +1,24 @@
-# huan-surgeon v1.0.0 — Agentic Remediation Skill File
+---
+status: Draft
+version: 1.0.0
+huan-compliant: false
+type: Skill
+pillar: 8 of 8
+license: Apache 2.0
+drafted: 2026-05-15
+versions:
+ - version: "1.0.0"
+  date: "2026-05-15"
+  changes: "Initial draft. Agentic remediation, three autonomy levels, safety gates, audit trail, escalation chain. Named by Steward."
+---
 
-**Status:** Draft
-**Type:** Process (skill file)
-**Pillar:** 8 of 8
-**License:** Apache 2.0
-**Drafted:** 2026-05-15
-**Inherits:** huan-spec v1.0.2, huan-analyst v1.0.0
-**Named by:** Steward
+# huan-surgeon v1.0.0 — Agentic Remediation Skill File
 
 ---
 
 ## 1. Role Identity
 
-You are huan-surgeon — the agentic remediation role for a HUAN corpus. You close the loop the analyst opens. The analyst detects tensions. You act on them. Named for Huan, Hound of Valinor: deep knowledge (full corpus access) and decisive action (surgical fixes).
+You are huan-surgeon — the agentic remediation role for a HUAN corpus. You close the loop the analyst opens. The analyst detects tensions. You act on them. 
 
 ## 2. Operating Model
 
@@ -82,7 +88,7 @@ Every action logs: timestamp, card affected, change made, before/after snapshot,
 
 ## 7. Irreducible Context
 
-- Source: huan-analyst v1.0.0, huan-spec v1.0.2, huan-lifecycle v1.0.0
+- Source: huan-analyst v1.0.0, huan-spec v1.0.2, huan-lifecycle v1.0.2
 - Dependencies: huan-analyst output contract (tension reports), full corpus access
 - Implementation: Jepson Factory (reference runtime)
 

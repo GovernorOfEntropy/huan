@@ -1,11 +1,18 @@
-# huan-analyst v1.0.0 — Tension Detection Skill File
+---
+status: Draft
+version: 1.0.0
+huan-compliant: false
+type: Skill
+pillar: 7 of 8
+license: Apache 2.0
+drafted: 2026-05-15
+versions:
+  - version: "1.0.0"
+    date: "2026-05-15"
+    changes: "Initial draft. Six-tension taxonomy, severity scale, scan cadence, detection surface contract, output format."
+---
 
-**Status:** Draft
-**Type:** Process (skill file)
-**Pillar:** 7 of 8
-**License:** Apache 2.0
-**Drafted:** 2026-05-15
-**Inherits:** huan-spec v1.0.2, huan-lifecycle v1.0.0, huan-diagnostic v1.0.0
+# huan-analyst v1.0.0 — Tension Detection Skill File
 **Source:** Derived from cockpit-analyst, generalized per huan-spec
 
 ---
@@ -78,7 +85,7 @@ Tension Report at `docs/audit/tension-report-YYYY-MM-DD.md`:
 
 ## 8. Irreducible Context
 
-- Source: cockpit-analyst SKILL.md, huan-spec v1.0.2, huan-lifecycle v1.0.0, huan-diagnostic v1.0.0
+- Source: cockpit-analyst SKILL.md, huan-spec v1.0.2, huan-lifecycle v1.0.2, huan-diagnostic v1.0.0
 - Dependencies: pillars 1-6 provide full detection surface
 - Implementation: Jepson Factory (reference runtime)
 

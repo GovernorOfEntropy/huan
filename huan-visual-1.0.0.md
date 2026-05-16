@@ -1,13 +1,18 @@
-# huan-visual v1.0.0 — Visual Artifact Production Skill File
+---
+status: Draft
+version: 1.0.0
+huan-compliant: false
+type: Skill
+pillar: 6 of 8
+license: Apache 2.0
+drafted: 2026-05-15
+versions:
+  - version: "1.0.0"
+    date: "2026-05-15"
+    changes: "Initial draft. Card graph to diagram rendering, 2-way edge rule enforcement, edge contract, annotation separation, theme-aware renders."
+---
 
-**Status:** Draft
-**Type:** Process (skill file)
-**Pillar:** 6 of 8
-**PM:** HUAN PM (FL-022)
-**Role:** Visual Artifact Producer
-**License:** Apache 2.0
-**Drafted:** 2026-05-15
-**Inherits:** huan-spec v1.0.2
+# huan-visual v1.0.0 — Visual Artifact Production Skill File
 
 ---
 
@@ -44,7 +49,7 @@ The visual artifact renders this graph. It does not add nodes. It does not inven
 
 ## 4. The mdwiki 2-Way Edge Rule
 
-A visual artifact is valid only if every edge in the rendered diagram has a corresponding card reference in both directions. This is the mdwiki 2-way edge rule, inherited from huan-lifecycle v1.0.0.
+A visual artifact is valid only if every edge in the rendered diagram has a corresponding card reference in both directions. This is the mdwiki 2-way edge rule, inherited from huan-lifecycle v1.0.2.
 
 **Definition:** For every edge A → B in the rendered graph, both conditions must hold:
 1. Card A's Links and References section contains `[[ZK-B-slug]]`
@@ -192,9 +197,9 @@ Themes are implementation-defined. The graph structure is invariant across theme
 
 ## 13. Irreducible Context
 
-- **Source paths:** `docs/corpus/ZK-039-display-layer-ui-design.md`, `docs/corpus/ZK-054-theming-architecture.md`, `docs/corpus/ZK-095-cockpit-desktop-architecture.md`, `docs/huan-standard/huan-spec-1.0.2.md`, `docs/huan-standard/huan-lifecycle-1.0.0.md`
-- **Dependencies:** huan-spec v1.0.2 (card format, cross-references as graph edges), huan-lifecycle v1.0.0 (mdwiki 2-way edge rule, lifecycle gate enforcement), ZK-039 (display layer philosophy — graph as situational awareness), ZK-054 (theming architecture — theme-aware rendering), ZK-095 (desktop architecture — rendering surface)
-- **Versions referenced:** ZK-039 (huan, 2026-02-25), ZK-054 (huan, 2026-04-05), ZK-095 (huan, 2026-05-07), huan-spec v1.0.2 (2026-05-15), huan-lifecycle v1.0.0 (2026-05-15)
+- **Source paths:** `docs/corpus/ZK-039-display-layer-ui-design.md`, `docs/corpus/ZK-054-theming-architecture.md`, `docs/corpus/ZK-095-cockpit-desktop-architecture.md`, `docs/huan-standard/huan-spec-1.0.2.md`, `docs/huan-standard/huan-lifecycle-1.0.2.md`
+- **Dependencies:** huan-spec v1.0.2 (card format, cross-references as graph edges), huan-lifecycle v1.0.2 (mdwiki 2-way edge rule, lifecycle gate enforcement), ZK-039 (display layer philosophy — graph as situational awareness), ZK-054 (theming architecture — theme-aware rendering), ZK-095 (desktop architecture — rendering surface)
+- **Versions referenced:** ZK-039 (huan, 2026-02-25), ZK-054 (huan, 2026-04-05), ZK-095 (huan, 2026-05-07), huan-spec v1.0.2 (2026-05-15), huan-lifecycle v1.0.2 (2026-05-15)
 - **Implementation:** Jepson Factory (reference runtime). Graph traversal, rendering engine, theme system.
 
 ---

@@ -1,12 +1,22 @@
-# huan-skill v1.0.1 — Tech Writer PM Skill File
+---
+status: Draft
+version: 1.0.2
+huan-compliant: false
+type: Skill
+pillar: 2 of 8
+license: Apache 2.0
+drafted: 2026-05-15
+updated: 2026-05-16
+versions:
+  - version: "1.0.2"
+    date: "2026-05-16"
+    changes: "Added Writing Discipline section with Socratic Walk, humility posture, killshot reframe, and concrete rules. Added Instantiation Story."
+  - version: "1.0.0"
+    date: "2026-05-15"
+    changes: "Initial draft. Tech Writer PM role identity, output formats, workflow, scrub protocol."
+---
 
-**Status:** Draft
-**Type:** Process (skill file)
-**Pillar:** 2 of 8
-**PM:** HUAN PM (FL-022)
-**Role:** Technical Writer PM
-**License:** Apache 2.0
-**Drafted:** 2026-05-15
+# huan-skill v1.0.2 — Tech Writer PM Skill File
 
 ---
 
@@ -39,7 +49,7 @@ One artifact. Two audiences. Zero duplication.
 | Request | Output | Example |
 |---------|--------|---------|
 | Pillar spec | `huan-{pillar}-{version}.md` | `huan-spec-1.0.2.md` |
-| Pillar skill file | `huan-{pillar}-{version}.md` | `huan-skill-v1.0.1.md` |
+| Pillar skill file | `huan-{pillar}-{version}.md` | `huan-skill-v1.0.2.md` |
 | Architecture overview | `README.md` | HUAN repository root |
 | Cross-reference | `cross-refs/{topic}.md` | Cross-pillar dependency map |
 | Adoption guide | `adoption-guide.md` | What HUAN replaces, migration path |
@@ -87,7 +97,24 @@ HUAN is a standard — a set of I/O contracts for dual-audience documentation. I
 
 HUAN does not require Jepson. HUAN does not require any specific toolchain. HUAN requires compliance with the card format and lifecycle contracts.
 
-## 9. Startup
+
+
+
+## 9. Writing Discipline
+
+### Method: The Socratic Walk
+Lead the reader through the argument. Each section poses the question the previous section raised. The structure is dialogic. The reader arrives because the path brought them there.
+
+### Posture: Humility
+The work speaks. Confidence without bravado. "We built this" not "this architecture enables."
+
+### Arrival: The Killshot
+The reframe that changes understanding. Earned by the walk. The killshot only lands if the reader was walked there first.
+
+### Concrete Rules
+Declarative short sentences. Lead with the thesis. Active voice. One argument per section. Tables for comparison only. Every reference carries version. Changelog on every revision.
+
+## 10. Startup
 
 1. Load this skill file
 2. Check HUAN PM directives for active documentation requests

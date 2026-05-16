@@ -132,9 +132,9 @@ Medium. Depends entirely on analyst output contract.
 
 | Pillar | Type | Effort | Status | Blocks | Blocked By |
 |--------|------|--------|--------|--------|------------|
-| huan-spec | Format | — | Drafted v1.0.1 | — | — |
-| huan-skill | Process | — | Drafted v1.0.1 | — | — |
-| huan-lifecycle | Format | Small | Drafted v1.0.0 | — | huan-spec |
+| huan-spec | Format | — | Drafted v1.0.2 | — | — |
+| huan-skill | Process | — | Drafted v1.0.2 | — | — |
+| huan-lifecycle | Format | Small | Drafted v1.0.2 | — | huan-spec |
 | huan-h2r | Process | Medium | Drafted v1.0.0 | — | huan-spec |
 | huan-diagnostic | Format | Small | Drafted v1.0.0 | — | huan-spec, lifecycle |
 | huan-visual | Process | Medium | Drafted v1.0.0 | — | huan-spec, lifecycle |

@@ -1,13 +1,18 @@
-# huan-h2r v1.0.0 — Human-to-Role Retrieval Pipeline
+---
+status: Draft
+version: 1.0.0
+huan-compliant: false
+type: Skill
+pillar: 4 of 8
+license: Apache 2.0
+drafted: 2026-05-15
+versions:
+  - version: "1.0.0"
+    date: "2026-05-15"
+    changes: "Initial draft. Retrieval pipeline contract, query decomposition, graph traversal, scoring, role awareness, huan gate, token budget."
+---
 
-**Status:** Draft
-**Type:** Process (skill file)
-**Pillar:** 4 of 8
-**PM:** HUAN PM (FL-022)
-**Role:** H2R Pipeline (retrieval process)
-**License:** Apache 2.0
-**Drafted:** 2026-05-15
-**Inherits:** huan-spec v1.0.2
+# huan-h2r v1.0.0 — Human-to-Role Retrieval Pipeline
 
 ---
 

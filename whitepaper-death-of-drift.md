@@ -1,13 +1,16 @@
 ---
 title: "The Death of Drift: HUAN Architecture for Post-SaaS Governance"
 status: Draft
-version: 1.0.0
+version: 1.1.0
 huan-compliant: false
 type: Whitepaper
 license: Apache 2.0
 drafted: 2026-05-15
-updated: 2026-05-15
+updated: 2026-05-16
 versions:
+  - version: "1.1.0"
+    date: "2026-05-16"
+    changes: "Added section 3: The Spec Is a Distillation — observation-driven design. HUAN acronym expansion. Lifecycle references updated to v1.0.2. Sections renumbered 3→9."
   - version: "1.0.0"
     date: "2026-05-15"
     changes: "Initial draft. 8-pillar architecture, dual-audience thesis, computable coherence, surgeon remediation, deprecation propagation."
@@ -20,7 +23,7 @@ audience: practitioner
 
 The industry has accepted a quiet failure as permanent. Every organization drifts — the gap between what leadership believes, what engineering built, and what documentation says widens daily. The accepted response is process. More reviews. More gates. More meetings. The architecture of the response matches the architecture of the problem: both are human-scale. Drift moves faster than humans can.
 
-We built HUAN to break that cycle. It is an open standard for dual-audience documentation. Every artifact serves humans and AI simultaneously. Coherence is a computable graph property — not a feeling, not a review finding. A surgeon-agent heals the corpus before anyone notices the wound. The founder thinks. The factory builds. Drift arrives. The system responds.
+We built HUAN — Hybrid Universal Artifact Notation — to break that cycle. It is an open standard for dual-audience documentation. Every artifact serves humans and AI simultaneously. Coherence is a computable graph property — not a feeling, not a review finding. A surgeon-agent heals the corpus before anyone notices the wound. The founder thinks. The factory builds. Drift arrives. The system responds.
 
 This is not a documentation tool. It is the immune system for the corporate brain. We are putting it in the world because the problem deserves a response at its own scale.
 
@@ -56,7 +59,23 @@ HUAN is a standard, not a platform. It defines I/O contracts at the seams. Imple
 
 ---
 
-## 3. Coherence Is a Graph Property
+## 3. The Spec Is a Distillation
+
+The spec was built on observing the problem.
+
+You did not design HUAN in a vacuum. You watched the factory work. You saw where tension accumulated — one-way edges, stale references, orphan cards, version skew. And you wrote the spec to make those tensions visible.
+
+The spec is not a theory. It is a distillation.
+
+Every field in the frontmatter exists because something broke without it. Every rule in the authoring discipline exists because a card drifted. Every transition in the lifecycle exists because a card aged out and nobody noticed.
+
+HUAN did not start as a white paper. It started as a factory that built things from prompts against contracts. The factory produced code. The code produced tension. The tension revealed what the documentation was missing. The spec closed the gap.
+
+This is the method. Build. Observe the failure. Write the rule. Repeat. The 8 pillars are not a design. They are 8 things that broke and then got fixed.
+
+---
+
+## 5. Coherence Is a Graph Property
 
 HUAN moves documentation quality from subjective review to measurable property. The question shifts from "does this look right?" to "does the graph have zero coherence violations?"
 
@@ -77,28 +96,28 @@ The diagnostic layer (huan-diagnostic v1.0.0) monitors eight dimensions of card 
 
 ---
 
-## 4. Four Layers. No Single Point of Failure.
+## 6. Four Layers. No Single Point of Failure.
 
 Drift attacks at every layer. HUAN defends at every layer. No single mechanism carries the full burden.
 
 | Layer | Mechanism | What It Protects |
 |-------|-----------|-----------------|
 | 1 | Git | Code loss. Version history. Rollback. |
-| 2 | huan-lifecycle v1.0.0 | Stale cards. Formal state machine from seed to pruned. Every transition gated. |
+| 2 | huan-lifecycle v1.0.2 | Stale cards. Formal state machine from seed to pruned. Every transition gated. |
 | 3 | huan-analyst v1.0.0 | Coherence drift. Six-tension scan. Structured reports. |
 | 4 | huan-surgeon v1.0.0 | Accumulated unfixed tensions. Surgical remediation at three autonomy levels. |
 
 Each layer catches what the layer below cannot. Git catches code loss but accepts stale documentation. The lifecycle catches staleness but does not detect semantic mismatch. The analyst detects mismatch but does not act on it. The surgeon closes the loop.
 
-The lifecycle state machine (huan-lifecycle v1.0.0) is the structural defense. A card cannot advance from growing to HUAN status unless all cross-references reciprocate. A card at HUAN status cannot be modified without triggering re-evaluation. The gates are not advisory. They are encoded in the state transitions.
+The lifecycle state machine (huan-lifecycle v1.0.2) is the structural defense. A card cannot advance from growing to HUAN status unless all cross-references reciprocate. A card at HUAN status cannot be modified without triggering re-evaluation. The gates are not advisory. They are encoded in the state transitions.
 
 Deprecation propagates automatically. Prune a card. The signal moves. Every dependent is flagged within three hops. The organization knows immediately what a change affects — not by reading documentation, but by watching the graph respond. The change becomes visible at the speed of the graph, not the speed of the next meeting.
 
 ---
 
-## 5. The Surgeon
+## 7. The Surgeon
 
-huan-surgeon v1.0.0 closes the loop the analyst opens. Named for Huan — deep knowledge and decisive action in one being.
+huan-surgeon v1.0.0 closes the loop the analyst opens. 
 
 The surgeon reads analyst tension reports. Accesses the full corpus. Applies the minimum intervention. It does not design. It does not decide strategic direction. It executes the smallest change that closes a specific tension.
 
@@ -119,14 +138,14 @@ The surgeon's autonomy model is calibrated. Deterministic fixes — stale paths,
 
 ---
 
-## 6. What We Built and What It Means
+## 8. What We Built and What It Means
 
 We built an 8-pillar architecture. Every pillar is drafted. Every pillar carries a version. The artifacts exist, the contracts are defined, the reference runtime is implemented.
 
 The pillars:
 - **huan-spec v1.0.2** — atomic card format. The foundation.
-- **huan-skill v1.0.1** — the HUAN product definition. This standard, managed.
-- **huan-lifecycle v1.0.0** — state machine from seed to pruned. Deprecation propagation.
+- **huan-skill v1.0.2** — the HUAN product definition. This standard, managed.
+- **huan-lifecycle v1.0.2** — state machine from seed to pruned. Deprecation propagation.
 - **huan-h2r v1.0.0** — human-to-role retrieval pipeline.
 - **huan-diagnostic v1.0.0** — card health monitoring. NDJSON events.
 - **huan-visual v1.0.0** — card graph to diagram rendering. 2-way edge rule enforced.
@@ -137,7 +156,7 @@ The architecture is complete. The standard is open. The reference implementation
 
 ---
 
-## 7. The Immune System
+## 9. The Immune System
 
 The distance between what an organization thinks it knows and what is actually true is its entropy budget. High-entropy organizations spend that budget on meetings, reviews, and incident remediation — paying the tax the industry has accepted as permanent. Low-entropy organizations spend it on building.
 
@@ -151,7 +170,7 @@ We built this because the problem deserved better than process. The industry has
 
 ## Irreducible Context
 
-- Source: huan-spec v1.0.2, huan-lifecycle v1.0.0, huan-analyst v1.0.0, huan-surgeon v1.0.0, huan-diagnostic v1.0.0, huan-visual v1.0.0, huan-h2r v1.0.0
+- Source: huan-spec v1.0.2, huan-lifecycle v1.0.2, huan-analyst v1.0.0, huan-surgeon v1.0.0, huan-diagnostic v1.0.0, huan-visual v1.0.0, huan-h2r v1.0.0
 - Dependencies: huan-spec v1.0.2 (atomic card format, core standard inherited by all pillars)
 - References: docs/huan-standard/hpe-submission-package.md
 - Implementation: Jepson Factory (reference runtime, open source)

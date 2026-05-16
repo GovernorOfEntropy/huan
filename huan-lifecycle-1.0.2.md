@@ -1,4 +1,19 @@
-# huan-lifecycle v1.0.1 — corrected per Advisor 02:20 FINAL
+---
+status: Draft
+version: 1.0.2
+huan-compliant: false
+type: Spec
+pillar: 3 of 8
+license: Apache 2.0
+drafted: 2026-05-15
+updated: 2026-05-15
+versions:
+  - version: "1.0.2"
+    date: "2026-05-15"
+    changes: "Initial draft. State machine, transitions, prune propagation, 2-way edge rule. Corrected per Advisor 02:20 FINAL."
+---
+
+# huan-lifecycle v1.0.2 — corrected per Advisor 02:20 FINAL
 
 ## 1. Scope
 This lifecycle governs HUAN cards only. A HUAN card is always dual-audience. Non-HUAN artifacts (evergreen, raw logs, internal) exist alongside but are not governed by this lifecycle.
