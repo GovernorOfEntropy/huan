@@ -1,13 +1,16 @@
 ---
 status: Draft
-version: 1.0.2
+version: 1.0.3
 huan-compliant: false
 type: Spec
 pillar: 3 of 8
 license: Apache 2.0
 drafted: 2026-05-15
-updated: 2026-05-15
+updated: 2026-05-16
 versions:
+  - version: "1.0.3"
+    date: "2026-05-16"
+    changes: "Added directory perimeter gate — manifest-to-disk match required for chapter compliance. Version lockout on manifest skew. Referenced huan-spec v1.0.4 and huan-analyst v1.1.0."
   - version: "1.0.2"
     date: "2026-05-15"
     changes: "Initial draft. State machine, transitions, prune propagation, 2-way edge rule. Corrected per Advisor 02:20 FINAL."
@@ -37,8 +40,28 @@ Dependents flagged, up to 3 hops. Notification, not demotion.
 ## 5. 2-Way Edge Rule
 HUAN cards must have bidirectional references. Foundational cards exempt.
 
-## 6. Context
-Source: ZK-139/140/141, huan-spec v1.0.2
+## 6. Directory Perimeter Gate
+
+A directory is not HUAN-compliant unless its README's `directory-manifest` passes the analyst first-pass check. The gate conditions:
+
+- README exists at directory root with valid HUAN frontmatter
+- `directory-manifest` field present and populated
+- Manifest-to-disk match verified (analyst first-pass)
+- Zero unmapped entities within the directory perimeter
+- All manifest version references match actual file versions
+
+Failure blocks all artifact lifecycle transitions within the directory. A chapter cannot advance cards while the directory perimeter is breached.
+
+## 7. Version Lockout
+
+When the analyst detects a manifest-to-disk version mismatch (Type 6 — Version Skew), the pipeline locks. No artifacts in the affected directory may advance status. The lock persists until:
+- The manifest is updated to match file versions, or
+- File versions are corrected to match the manifest
+
+Lockout is per-directory. A breach in one chapter directory does not affect others.
+
+## 8. Context
+Source: huan-spec v1.0.4, huan-analyst v1.1.0
 Implementation: Jepson Factory
 
 ---

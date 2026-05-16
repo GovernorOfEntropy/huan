@@ -1,6 +1,6 @@
 ---
 status: Draft
-version: 1.0.2
+version: 1.0.4
 huan-compliant: false
 type: Spec
 pillar: 1 of 8
@@ -8,6 +8,9 @@ license: Apache 2.0
 drafted: 2026-05-15
 updated: 2026-05-16
 versions:
+  - version: "1.0.4"
+    date: "2026-05-16"
+    changes: "Added directory-level HUAN: huan-directory-compliant boolean, directory-manifest format, directory perimeter enforcement. README as frontmatter, manifest as inventory, analyst as guard."
   - version: "1.0.3"
     date: "2026-05-16"
     changes: "Added Chapter README (Recommended) as dual-audience discovery entry point. Added HUAN acronym expansion (Hybrid Universal Artifact Notation)."
@@ -69,6 +72,48 @@ A README is not a HUAN card. It does not require `huan-compliant` status. It doe
 - Adoption and licensing notes
 
 Inclusion is recommended, not required. Chapters without READMEs must provide equivalent discovery through their INDEX or cross-reference structure.
+
+## 8. Directory-Level HUAN
+
+A directory carrying a valid HUAN README is a HUAN-compliant directory. The README serves as the directory's frontmatter. The indexed inventory in the Context section serves as the directory's artifact manifest.
+
+### huan-directory-compliant
+
+`huan-directory-compliant`: boolean. Set to `true` when:
+- README exists at directory root with valid HUAN frontmatter
+- README carries a `directory-manifest` field listing all tracked artifacts
+- Analyst first-pass check confirms manifest matches actual directory contents
+- No untracked files exist within the directory perimeter
+- All manifest version references match actual file versions on disk
+
+### directory-manifest
+
+The manifest is the indexed inventory of the directory. Every tracked artifact is declared with path, type, and version.
+
+```yaml
+directory-manifest:
+  - path: "README.md"
+    type: "directory-frontmatter"
+    version: "1.1.0"
+  - path: "whitepaper-death-of-drift.md"
+    type: "whitepaper"
+    version: "1.1.0"
+  - path: "huan-spec-1.0.2.md"
+    type: "specification"
+    version: "1.0.3"
+```
+
+Required fields per entry: `path` (relative to directory root), `type` (artifact type per lifecycle catalog), `version` (must match the file's declared version).
+
+### Directory Perimeter
+
+The README is the directory perimeter. The analyst treats the manifest as the absolute layout boundary:
+
+- **Manifest check:** Files listed in manifest but missing on disk → stale reference (Type 2 tension). Files on disk but missing from manifest → unmapped entity (Type 5 tension).
+- **Version lockout:** File version on disk does not match manifest → Type 6 version skew. Pipeline locks until resolved.
+- **Untracked detection:** Any file in the directory not declared in the manifest is an unmapped entity. Flagged on every scan.
+
+The directory perimeter is enforced by huan-analyst as a first-pass scan and by huan-lifecycle as a gate condition.
 
 ---
 

@@ -1,12 +1,16 @@
 ---
 status: Draft
-version: 1.0.0
+version: 1.1.0
 huan-compliant: false
 type: Skill
 pillar: 7 of 8
 license: Apache 2.0
 drafted: 2026-05-15
+updated: 2026-05-16
 versions:
+  - version: "1.1.0"
+    date: "2026-05-16"
+    changes: "Added README Index Coherence Check (first-pass scan). Directory perimeter enforcement: manifest check, untracked detection, version lockout. Domain scoping — chapter PMs deploy own analyst instances."
   - version: "1.0.0"
     date: "2026-05-15"
     changes: "Initial draft. Six-tension taxonomy, severity scale, scan cadence, detection surface contract, output format."
@@ -54,12 +58,37 @@ Card references version of artifact that has been updated. Detection: compare ve
 
 ## 4. Scan Cadence
 
+- **README Index Coherence Check:** First pass on every scan. Read every README in the domain. Compare `directory-manifest` entries against actual files on disk. Deterministic. No content analysis. Instant orientation.
 - On-change: triggered when any card is created or modified
 - Daily: full graph traversal
 - Weekly: deep scan including filesystem path verification
 - On-demand: invoked by Steward or HUAN PM
 
-## 5. Output Format
+## 5. Directory Perimeter Enforcement
+
+The analyst enforces the directory perimeter defined in huan-spec v1.0.4 section 8.
+
+### Manifest Check
+
+Cross-reference every `directory-manifest` entry against the filesystem:
+- Manifest entry with no corresponding file on disk → Type 2 (Stale Reference)
+- File on disk with no manifest entry → unmapped entity violation
+
+### Untracked Detection
+
+Any file within the directory perimeter not declared in the README's `directory-manifest` is an unmapped entity. Flagged on every scan. The directory is not HUAN-compliant until the entity is either added to the manifest or removed.
+
+### Version Lockout
+
+Compare manifest-declared version against actual file frontmatter version. Mismatch → Type 6 (Version Skew). Pipeline locks. No artifacts in the directory advance until the skew is resolved.
+
+## 6. Domain Scoping
+
+The analyst operates at the domain level, not corpus-wide by default. A chapter PM deploys an analyst instance scoped to their chapter directory. The instance reads only the chapter's README, manifest, and artifacts.
+
+Larger domains (full corpus) are requested explicitly. The default is chapter-scoped. This keeps scans fast, findings relevant, and ownership clear.
+
+## 7. Output Format
 
 Tension Report at `docs/audit/tension-report-YYYY-MM-DD.md`:
 
@@ -68,7 +97,7 @@ Tension Report at `docs/audit/tension-report-YYYY-MM-DD.md`:
 - Drift-Free Affirmations: what passed — as important as what failed
 - Scan Coverage: cards scanned, cross-references verified, paths checked
 
-## 6. Routing
+## 8. Routing
 
 | Finding | Routes To | Action |
 |---------|-----------|--------|
@@ -76,14 +105,14 @@ Tension Report at `docs/audit/tension-report-YYYY-MM-DD.md`:
 | Warning | HUAN PM | Monitor trend |
 | Strategic ambiguity | Advisor | Human judgment |
 
-## 7. Hard Constraints
+## 9. Hard Constraints
 
 - Detect only. Never resolve tensions.
 - Never edit cards. Report findings.
 - Never change status. The lifecycle gate does that.
 - huan-compliant: true is set by lifecycle gate, not analyst.
 
-## 8. Irreducible Context
+## 10. Irreducible Context
 
 - Source: cockpit-analyst SKILL.md, huan-spec v1.0.2, huan-lifecycle v1.0.2, huan-diagnostic v1.0.0
 - Dependencies: pillars 1-6 provide full detection surface

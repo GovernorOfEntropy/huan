@@ -1,13 +1,16 @@
 ---
 title: "The Death of Drift: HUAN Architecture for Post-SaaS Governance"
 status: Draft
-version: 1.1.0
+version: 1.2.0
 huan-compliant: false
 type: Whitepaper
 license: Apache 2.0
 drafted: 2026-05-15
 updated: 2026-05-16
 versions:
+  - version: "1.2.0"
+    date: "2026-05-16"
+    changes: "Added section 7: The Directory Is the Perimeter — README as frontmatter, directory-manifest, untracked detection, version lockout, domain scoping. Pillar version references updated to current (spec 1.0.4, analyst 1.1.0, surgeon 1.1.0, lifecycle 1.0.3). Sections renumbered 7→10."
   - version: "1.1.0"
     date: "2026-05-16"
     changes: "Added section 3: The Spec Is a Distillation — observation-driven design. HUAN acronym expansion. Lifecycle references updated to v1.0.2. Sections renumbered 3→9."
@@ -17,7 +20,7 @@ versions:
 audience: practitioner
 ---
 
-**Note:** This is a whitepaper, not a HUAN card. `huan-compliant: false`. For the standard, see huan-spec v1.0.2.
+**Note:** This is a whitepaper, not a HUAN card. `huan-compliant: false`. For the standard, see huan-spec v1.0.4.
 
 ## Irreducible Concept
 
@@ -79,7 +82,7 @@ This is the method. Build. Observe the failure. Write the rule. Repeat. The 8 pi
 
 HUAN moves documentation quality from subjective review to measurable property. The question shifts from "does this look right?" to "does the graph have zero coherence violations?"
 
-The analyst (huan-analyst v1.0.0) scans the card graph for six tension types.
+The analyst (huan-analyst v1.1.0) scans the card graph for six tension types.
 
 | Tension | Detection | Severity |
 |---------|----------|----------|
@@ -103,21 +106,45 @@ Drift attacks at every layer. HUAN defends at every layer. No single mechanism c
 | Layer | Mechanism | What It Protects |
 |-------|-----------|-----------------|
 | 1 | Git | Code loss. Version history. Rollback. |
-| 2 | huan-lifecycle v1.0.2 | Stale cards. Formal state machine from seed to pruned. Every transition gated. |
-| 3 | huan-analyst v1.0.0 | Coherence drift. Six-tension scan. Structured reports. |
-| 4 | huan-surgeon v1.0.0 | Accumulated unfixed tensions. Surgical remediation at three autonomy levels. |
+| 2 | huan-lifecycle v1.0.3 | Stale cards. Formal state machine from seed to pruned. Every transition gated. |
+| 3 | huan-analyst v1.1.0 | Coherence drift. Six-tension scan. Structured reports. |
+| 4 | huan-surgeon v1.1.0 | Accumulated unfixed tensions. Surgical remediation at three autonomy levels. |
 
 Each layer catches what the layer below cannot. Git catches code loss but accepts stale documentation. The lifecycle catches staleness but does not detect semantic mismatch. The analyst detects mismatch but does not act on it. The surgeon closes the loop.
 
-The lifecycle state machine (huan-lifecycle v1.0.2) is the structural defense. A card cannot advance from growing to HUAN status unless all cross-references reciprocate. A card at HUAN status cannot be modified without triggering re-evaluation. The gates are not advisory. They are encoded in the state transitions.
+The lifecycle state machine (huan-lifecycle v1.0.3) is the structural defense. A card cannot advance from growing to HUAN status unless all cross-references reciprocate. A card at HUAN status cannot be modified without triggering re-evaluation. The gates are not advisory. They are encoded in the state transitions.
 
 Deprecation propagates automatically. Prune a card. The signal moves. Every dependent is flagged within three hops. The organization knows immediately what a change affects — not by reading documentation, but by watching the graph respond. The change becomes visible at the speed of the graph, not the speed of the next meeting.
 
 ---
 
-## 7. The Surgeon
+## 7. The Directory Is the Perimeter
 
-huan-surgeon v1.0.0 closes the loop the analyst opens. 
+Every HUAN chapter is a directory. Every directory carries a README. That README is not documentation. It is the perimeter.
+
+The directory-manifest is the indexed inventory of everything in the chapter — every spec, every skill file, every whitepaper, every card. The analyst's first pass does not read content. It compares the manifest against what is actually on disk.
+
+- File listed in manifest but missing → stale reference. Coherence violation.
+- File on disk but not in manifest → unmapped entity. Flagged immediately.
+- File version on disk does not match manifest → version skew. Pipeline locks.
+
+This is deterministic. No content analysis. No AI judgment. List comparison. Instant audit. Every directory self-audits on every scan.
+
+This turns a file folder into an object-oriented database primitive. The folder knows its own contents, enforces its own version boundaries, and computes its own structural health through a single file.
+
+**Zero untracked elements.** The directory is not HUAN-compliant until every file is either in the manifest or removed. An engineer drops a file without updating the README — flagged. An external process writes a log file — flagged. The perimeter is absolute. What is not declared does not belong.
+
+**Version lockout.** The manifest declares expected versions. If a file carries `version: 1.0.4` in its frontmatter but the manifest says `version: 1.0.2`, the pipeline locks. No artifacts in the directory advance. The lock is per-directory — a breach in one chapter does not cascade. The lock persists until the manifest is updated or the file version corrected.
+
+**Domain-scoped.** The analyst and surgeon operate at the chapter level by default. A chapter PM deploys their own instances. The analyst scans only the chapter's README and artifacts. The surgeon fixes only within the chapter's perimeter. Full-corpus access requires explicit Steward approval. Scans stay fast, findings stay relevant, ownership stays clear.
+
+The directory becomes a fort. The README is the gate. The manifest is the guard tower. The analyst is the watch. The pipeline obeys the perimeter. Drift arrives at the directory boundary and is turned back before it enters.
+
+---
+
+## 8. The Surgeon
+
+huan-surgeon v1.1.0 closes the loop the analyst opens. 
 
 The surgeon reads analyst tension reports. Accesses the full corpus. Applies the minimum intervention. It does not design. It does not decide strategic direction. It executes the smallest change that closes a specific tension.
 
@@ -138,25 +165,25 @@ The surgeon's autonomy model is calibrated. Deterministic fixes — stale paths,
 
 ---
 
-## 8. What We Built and What It Means
+## 9. What We Built and What It Means
 
 We built an 8-pillar architecture. Every pillar is drafted. Every pillar carries a version. The artifacts exist, the contracts are defined, the reference runtime is implemented.
 
 The pillars:
-- **huan-spec v1.0.2** — atomic card format. The foundation.
+- **huan-spec v1.0.4** — atomic card format. The foundation.
 - **huan-skill v1.0.2** — the HUAN product definition. This standard, managed.
-- **huan-lifecycle v1.0.2** — state machine from seed to pruned. Deprecation propagation.
+- **huan-lifecycle v1.0.3** — state machine from seed to pruned. Deprecation propagation.
 - **huan-h2r v1.0.0** — human-to-role retrieval pipeline.
 - **huan-diagnostic v1.0.0** — card health monitoring. NDJSON events.
 - **huan-visual v1.0.0** — card graph to diagram rendering. 2-way edge rule enforced.
-- **huan-analyst v1.0.0** — tension detection as computable graph property.
-- **huan-surgeon v1.0.0** — agentic remediation. Surgical, calibrated, auditable.
+- **huan-analyst v1.1.0** — tension detection as computable graph property.
+- **huan-surgeon v1.1.0** — agentic remediation. Surgical, calibrated, auditable.
 
 The architecture is complete. The standard is open. The reference implementation exists. What remains is adoption, feedback, and iteration — the work of a living standard.
 
 ---
 
-## 9. The Immune System
+## 10. The Immune System
 
 The distance between what an organization thinks it knows and what is actually true is its entropy budget. High-entropy organizations spend that budget on meetings, reviews, and incident remediation — paying the tax the industry has accepted as permanent. Low-entropy organizations spend it on building.
 
@@ -170,8 +197,8 @@ We built this because the problem deserved better than process. The industry has
 
 ## Irreducible Context
 
-- Source: huan-spec v1.0.2, huan-lifecycle v1.0.2, huan-analyst v1.0.0, huan-surgeon v1.0.0, huan-diagnostic v1.0.0, huan-visual v1.0.0, huan-h2r v1.0.0
-- Dependencies: huan-spec v1.0.2 (atomic card format, core standard inherited by all pillars)
+- Source: huan-spec v1.0.4, huan-lifecycle v1.0.3, huan-analyst v1.1.0, huan-surgeon v1.1.0, huan-diagnostic v1.0.0, huan-visual v1.0.0, huan-h2r v1.0.0
+- Dependencies: huan-spec v1.0.4 (atomic card format, core standard inherited by all pillars)
 - References: docs/huan-standard/hpe-submission-package.md
 - Implementation: Jepson Factory (reference runtime, open source)
 
