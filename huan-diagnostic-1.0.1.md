@@ -26,7 +26,7 @@ huan-diagnostic defines the log format for card health monitoring. Every HUAN co
 
 Diagnostics are the immune system of a HUAN corpus. They detect decay before it becomes corruption. They surface problems while they are small. They provide the detection surface that huan-analyst queries and huan-agent remediates.
 
-This spec inherits the dual-audience principle from huan-spec v1.0.2. Every diagnostic event serves both the human reader (what is wrong and why it matters) and the AI consumer (structured data for automated scanning).
+This spec inherits the dual-audience principle from huan-spec v1.0.5. Every diagnostic event serves both the human reader (what is wrong and why it matters) and the AI consumer (structured data for automated scanning).
 
 ## 2. Diagnostic Event Format
 
@@ -185,9 +185,9 @@ A diagnostic implementation is HUAN-compliant if:
 
 ## 9. Irreducible Context
 
-- **Source paths:** `docs/corpus/ZK-072-journaling-protocol.md`, `docs/corpus/ZK-098-flight-recorder-mission-archive.md`, `docs/corpus/ZK-046-org-model-taste-over-headcount.md`, `docs/huan-standard/huan-spec-1.0.2.md`, `docs/huan-standard/huan-lifecycle-1.0.2.md`
-- **Dependencies:** huan-spec v1.0.2 (card format, required fields as health check targets), huan-lifecycle v1.0.2 (status tiers, transition gates as diagnostic inputs)
-- **Versions referenced:** ZK-072 (huan, 2026-05-06), ZK-098 (huan, 2026-05-08), ZK-046 (huan, 2026-04-05), huan-spec v1.0.2 (2026-05-15), huan-lifecycle v1.0.2 (2026-05-15)
+- **Source paths:** `docs/corpus/ZK-072-journaling-protocol.md`, `docs/corpus/ZK-098-flight-recorder-mission-archive.md`, `docs/corpus/ZK-046-org-model-taste-over-headcount.md`, `docs/huan-standard/huan-spec-1.0.5.md`, `docs/huan-standard/huan-lifecycle-1.0.4.md`
+- **Dependencies:** huan-spec v1.0.5 (card format, required fields as health check targets), huan-lifecycle v1.0.4 (status tiers, transition gates as diagnostic inputs)
+- **Versions referenced:** ZK-072 (huan, 2026-05-06), ZK-098 (huan, 2026-05-08), ZK-046 (huan, 2026-04-05), huan-spec v1.0.5 (2026-05-15), huan-lifecycle v1.0.4 (2026-05-15)
 - **Implementation:** Jepson Factory (reference runtime). NDJSON event emission, scan scheduling, consumer subscription.
 
 ---

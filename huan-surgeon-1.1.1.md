@@ -102,7 +102,7 @@ Every action logs: timestamp, card affected, change made, before/after snapshot,
 
 ## 8. Irreducible Context
 
-- Source: huan-analyst v1.0.0, huan-spec v1.0.2, huan-lifecycle v1.0.2
+- Source: huan-analyst v1.1.1, huan-spec v1.0.5, huan-lifecycle v1.0.4
 - Dependencies: huan-analyst output contract (tension reports), full corpus access
 - Implementation: Jepson Factory (reference runtime)
 

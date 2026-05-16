@@ -70,7 +70,7 @@ Card references version of artifact that has been updated. Detection: compare ve
 
 ## 5. Directory Perimeter Enforcement
 
-The analyst enforces the directory perimeter defined in huan-spec v1.0.4 section 8.
+The analyst enforces the directory perimeter defined in huan-spec v1.0.5 section 8.
 
 ### Manifest Check
 
@@ -118,7 +118,7 @@ Tension Report at `docs/audit/tension-report-YYYY-MM-DD.md`:
 
 ## 10. Irreducible Context
 
-- Source: cockpit-analyst SKILL.md, huan-spec v1.0.2, huan-lifecycle v1.0.2, huan-diagnostic v1.0.0
+- Source: cockpit-analyst SKILL.md, huan-spec v1.0.5, huan-lifecycle v1.0.4, huan-diagnostic v1.0.1
 - Dependencies: pillars 1-6 provide full detection surface
 - Implementation: Jepson Factory (reference runtime)
 

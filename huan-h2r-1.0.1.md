@@ -169,9 +169,9 @@ Token budget enforcement is not optional. It is the mechanism that makes context
 
 ## 10. Irreducible Context
 
-- **Source paths:** `docs/corpus/ZK-111-context-sprawl-is-the-new-monolith.md`, `docs/corpus/ZK-004-context-assembly.md`, `docs/corpus/ZK-073-agent-sprawl-coherence-layer.md`, `docs/huan-standard/huan-spec-1.0.2.md`
-- **Dependencies:** huan-spec v1.0.2 (card format, status tiers, cross-references as graph edges), ZK-111 (context isolation principle), ZK-004 (context assembly pipeline), ZK-073 (agent sprawl — retrieval as coherence mechanism)
-- **Versions referenced:** ZK-111 (huan, 2026-05-10), ZK-004 (huan, 2026-02-22), ZK-073 (huan, 2026-05-06), huan-spec v1.0.2 (2026-05-15)
+- **Source paths:** `docs/corpus/ZK-111-context-sprawl-is-the-new-monolith.md`, `docs/corpus/ZK-004-context-assembly.md`, `docs/corpus/ZK-073-agent-sprawl-coherence-layer.md`, `docs/huan-standard/huan-spec-1.0.5.md`
+- **Dependencies:** huan-spec v1.0.5 (card format, status tiers, cross-references as graph edges), ZK-111 (context isolation principle), ZK-004 (context assembly pipeline), ZK-073 (agent sprawl — retrieval as coherence mechanism)
+- **Versions referenced:** ZK-111 (huan, 2026-05-10), ZK-004 (huan, 2026-02-22), ZK-073 (huan, 2026-05-06), huan-spec v1.0.5 (2026-05-15)
 - **Implementation:** Jepson Factory (reference runtime). Graph traversal, scoring algorithm, role-aware filtering.
 
 ---

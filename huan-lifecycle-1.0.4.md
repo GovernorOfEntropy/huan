@@ -16,7 +16,7 @@ versions:
     changes: "Initial draft. State machine, transitions, prune propagation, 2-way edge rule. Corrected per Advisor 02:20 FINAL."
 ---
 
-# huan-lifecycle v1.0.2 — corrected per Advisor 02:20 FINAL
+# huan-lifecycle v1.0.4 — corrected per Advisor 02:20 FINAL
 
 ## Irreducible Concept
 
@@ -65,7 +65,7 @@ When the analyst detects a manifest-to-disk version mismatch (Type 6 — Version
 Lockout is per-directory. A breach in one chapter directory does not affect others.
 
 ## 8. Context
-Source: huan-spec v1.0.4, huan-analyst v1.1.0
+Source: huan-spec v1.0.5, huan-analyst v1.1.1
 Implementation: Jepson Factory
 
 ---
