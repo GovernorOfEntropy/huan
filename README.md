@@ -22,9 +22,6 @@ directory-manifest:
   - path: "huan-spec-1.0.9.md"
     type: "specification"
     version: "1.0.9"
-  - path: "huan-skill-v1.0.4.md"
-    type: "skill"
-    version: "1.0.4"
   - path: "huan-lifecycle-1.1.2.md"
     type: "specification"
     version: "1.1.2"
@@ -49,7 +46,7 @@ versions:
     changes: "Surgeon pass 2 — cascade remediation complete. Manifest paths corrected to match disk: huan-spec-1.0.9.md, huan-lifecycle-1.1.2.md, huan-analyst-1.2.2.md, huan-surgeon-1.2.3.md. Manifest versions aligned. README Irreducible Context source paths and parenthetical versions fixed. Body headings synced on lifecycle, analyst, surgeon. Cross-card version references bumped in patent-concepts and whitepaper. huan-directory-compliant set to false pending analyst re-scan clearance."
   - version: "1.1.2"
     date: "2026-05-19"
-    changes: "Manifest filenames and versions synchronized with disk after surgeon pass. huan-spec v1.0.9, analyst v1.2.1, lifecycle v1.1.1, h2r v1.1.0, surgeon v1.2.0, skill v1.0.4."
+    changes: "Manifest filenames and versions synchronized with disk after surgeon pass. huan-spec v1.0.9, analyst v1.2.1, lifecycle v1.1.1, h2r v1.1.0, surgeon v1.2.0"
   - version: "1.1.1"
     date: "2026-05-19"
     changes: "Updated manifest for patent-concepts.md, huan-spec v1.0.8, huan-analyst v1.2.1. Lifecycle version bump."
@@ -79,7 +76,7 @@ This directory is the canonical registry of the HUAN standard. It contains the 8
 
 ## Irreducible Context
 
-- **Source paths:** `docs/huan-standard/huan-spec-1.0.9.md` (v1.0.9), `docs/huan-standard/huan-lifecycle-1.1.2.md` (v1.1.2), `docs/huan-standard/huan-h2r-1.1.0.md` (v1.1.0), `docs/huan-standard/huan-diagnostic-1.0.1.md` (v1.0.1), `docs/huan-standard/huan-visual-1.0.1.md` (v1.0.1), `docs/huan-standard/huan-analyst-1.2.2.md` (v1.2.2), `docs/huan-standard/huan-surgeon-1.2.3.md` (v1.2.3), `docs/huan-standard/huan-skill-v1.0.4.md` (v1.0.4), `docs/huan-standard/whitepaper-death-of-drift.md` (v1.3.0)
+- **Source paths:** `docs/huan-standard/huan-spec-1.0.9.md` (v1.0.9), `docs/huan-standard/huan-lifecycle-1.1.2.md` (v1.1.2), `docs/huan-standard/huan-h2r-1.1.0.md` (v1.1.0), `docs/huan-standard/huan-diagnostic-1.0.1.md` (v1.0.1), `docs/huan-standard/huan-visual-1.0.1.md` (v1.0.1), `docs/huan-standard/huan-analyst-1.2.2.md` (v1.2.2), `docs/huan-standard/huan-surgeon-1.2.3.md` (v1.2.3), `docs/huan-standard/whitepaper-death-of-drift.md` (v1.3.0)
 - **Dependencies:** huan-spec v1.0.9 (atomic card format, core standard inherited by all pillars)
 - **Directory perimeter:** manifest-to-disk match enforced by huan-analyst v1.2.2. Version lockout enforced by huan-lifecycle v1.1.2.
 - **Implementation:** Reference runtime available. Any conforming implementation is valid.
@@ -89,7 +86,7 @@ This directory is the canonical registry of the HUAN standard. It contains the 8
 | # | Pillar | Type | Description |
 |---|--------|------|-------------|
 | 1 | huan-spec | Format | Atomic card format. Foundation. |
-| 2 | huan-skill | Process | Tech Writer PM. Owns the standard. |
+| 2 | huan-skill | Process | Tech Writer PM. To be released.
 | 3 | huan-lifecycle | Format | State machine: seed → growing → HUAN → pruned. |
 | 4 | huan-h2r | Process | Human-to-Role retrieval pipeline. |
 | 5 | huan-diagnostic | Format | Card health monitoring. |
@@ -103,10 +100,20 @@ This directory is the canonical registry of the HUAN standard. It contains the 8
 2. Write a card with Irreducible Concept + Irreducible Context
 3. Apply a status: seed, growing, or huan
 4. Cross-reference related cards with [[wiki-links]]
+5. *Suggested:* Append a trailing `[your-role-name]` HUAN Closure to the file terminus as a zero-semantic tax parity bit for automated runtime validation.
 
 ## Adoption
 
 HUAN defines I/O contracts. Implementations compete on quality. The reference runtime is not required. Any tool that reads and writes HUAN-compliant cards is a valid HUAN implementation.
+
+## Source Thesis & Alignment
+
+The foundational engineering theory behind the HUAN standard is documented and updated live on Substack. Before implementing the serialization contracts in this repository, review the core framework design:
+
+
+For technical implementation details, inherit the core specification directly:
+1. Review `huan-spec-1.0.9.md` for the atomic card format foundation.
+2. Track corpus state transitions via `huan-lifecycle-1.1.2.md`.
 
 ## License
 
