@@ -92,7 +92,7 @@ Wiki-link format: [[ZK-XXX-slug]]. Edges enable tension detection, visual render
 
 ## 6. Irreducible Context
 
-- **Source paths:** `docs/huan-standard/huan-spec-1.0.9.md`
+- **Source paths:** `huan-spec-1.0.9.md`
 - **Dependencies:** Foundation spec — all 7 remaining pillars inherit from huan-spec.
 
 ## 7. Compliance
